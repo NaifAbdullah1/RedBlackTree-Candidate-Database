@@ -318,25 +318,25 @@ public class RedBlackTree<T extends Comparable<T>> {
 
             if (parent.parent == null) { // if there was no parent above the given parent, the left child becomes the root
                 root = leftNodeOld;
-                if (leftNodeOld != null) { // Setting the parent's reference
-                    leftNodeOld.parent = null;
-                }
+                //if (leftNodeOld != null) { // Setting the parent's reference
+                leftNodeOld.parent = null;
+                //}
 
             } else if (parent.parent.leftChild != null && parent.parent.leftChild.equals(parent)) {
-                if (leftNodeOld != null) { // Setting the reference
-                    leftNodeOld.parent = parent.parent;
-                }
+                //if (leftNodeOld != null) { // Setting the reference
+                leftNodeOld.parent = parent.parent;
+                //}
                 parent.parent.leftChild = leftNodeOld;
             } else {
-                if (leftNodeOld != null) { // Setting the reference
-                    leftNodeOld.parent = parent.parent;
-                }
+                //if (leftNodeOld != null) { // Setting the reference
+                leftNodeOld.parent = parent.parent;
+                //}
                 parent.parent.rightChild = leftNodeOld;
             }
 
-            if (parent != null) { // Setting the reference
-                parent.parent = leftNodeOld;
-            }
+            //if (parent != null) { // Setting the reference
+            parent.parent = leftNodeOld;
+            //}
             leftNodeOld.rightChild = parent;
         } else if (parent.rightChild != null && parent.rightChild.equals(child)) { //Rotate left
 
@@ -352,22 +352,22 @@ public class RedBlackTree<T extends Comparable<T>> {
                 root = rightNodeOld;
 
             } else if (parent.parent.leftChild != null && parent.parent.leftChild.equals(parent)) {
-                if (rightNodeOld != null) { // Setting the reference
-                    rightNodeOld.parent = parent.parent;
-                }
+                //if (rightNodeOld != null) { // Setting the reference
+                rightNodeOld.parent = parent.parent;
+                //}
 
                 parent.parent.leftChild = rightNodeOld;
             } else {
-                if (rightNodeOld != null) { // Setting the reference
-                    rightNodeOld.parent = parent.parent;
-                }
+                //if (rightNodeOld != null) { // Setting the reference
+                rightNodeOld.parent = parent.parent;
+                //}
 
                 parent.parent.rightChild = rightNodeOld;
             }
 
-            if (parent != null) {// Setting the reference
-                parent.parent = rightNodeOld;
-            }
+            //if (parent != null) {// Setting the reference
+            parent.parent = rightNodeOld;
+            //}
             rightNodeOld.leftChild = parent;
         }
     }
@@ -458,10 +458,11 @@ public class RedBlackTree<T extends Comparable<T>> {
              * @throws NoSuchElementException if there is no more elements in
              * the sequence
              */
+            @Override
             public T next() {
                 // if stack == null, we need to initialize the stack and current element
                 if (stack == null) {
-                    stack = new Stack<Node<T>>();
+                    stack = new Stack<>();
                     current = root;
                 }
                 // go left as far as possible in the sub tree we are in until we hit a null
@@ -492,6 +493,7 @@ public class RedBlackTree<T extends Comparable<T>> {
              * @return boolean indicating whether there are more elements /
              * steps for the traversal
              */
+            @Override
             public boolean hasNext() {
                 // return true if we either still have a current reference, or the stack
                 // is not empty yet
@@ -519,7 +521,7 @@ public class RedBlackTree<T extends Comparable<T>> {
         // to generate a string of all values of the tree in (ordered) in-order
         // traversal sequence
         Iterator<T> treeNodeIterator = this.iterator();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append("[ ");
         if (treeNodeIterator.hasNext()) {
             sb.append(treeNodeIterator.next());

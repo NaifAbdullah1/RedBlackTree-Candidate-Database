@@ -55,10 +55,8 @@ public class TestRedBlackTree {
                 Candidate candidate = createCandidateFromCSV(csvLine);
                 candidates.add(candidate);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
+        } catch (IOException | CsvValidationException e) {
+            System.out.println(e.getMessage());
         }
         return candidates;
     }
