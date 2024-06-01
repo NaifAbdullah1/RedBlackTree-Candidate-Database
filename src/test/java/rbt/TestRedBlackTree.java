@@ -24,7 +24,7 @@ public class TestRedBlackTree {
     public void testInsertCandidates() {
         RedBlackTree<Candidate> candidateRBT = new RedBlackTree<>();
 
-        // Taking in student info from the csv file 
+        // Taking in candidate info from the csv file 
         String candidatesCSVPath = "./src/main/resources/candidate-info.csv";
         List<Candidate> candidates = readCandidatesFromCSV(candidatesCSVPath);
 
