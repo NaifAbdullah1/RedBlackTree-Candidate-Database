@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>rbt</groupId>
-  <artifactId>rbt-student-db</artifactId>
+  <artifactId>rbt-candidate-db</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>rbt-student-db</name>
+  <name>rbt-candidate-db</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
